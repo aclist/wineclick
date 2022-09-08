@@ -44,27 +44,27 @@ If you do not wish to build the executable, you can obtain it via the [release p
 1. Obtain Windows 64-bit Python installer
 https://www.python.org/downloads/windows/ (direct link: https://www.python.org/ftp/python/3.10.6/python-3.10.6-amd64.exe)
 
-3. Create a wineprefix
+2. Create a wineprefix
 
 ```
 export WINEPREFIX=$HOME/.pyinstaller
 ```
-4. Set Wine version to Windows 8.1
+3. Set Wine version to Windows 8.1
 
 - Run `winecfg`
 - Select Applications tab
 - Use Windows version dropdown
 
-5. Follow default prompts to install Python into the Wine prefix.
+4. Follow default prompts to install Python into the Wine prefix.
 
-6. Install `pyinstaller` and necessary dependencies using pip
+5. Install `pyinstaller` and necessary dependencies using pip
 - Navigate to `<WINEPREFIX>/drive_c/users/<your username>/AppData/Local/Programs/Python/Python310`
 
 ```
 wine python.exe Scripts/pip.exe install pyinstaller pywin32 tailhead
 
 ```
-8. Compile script into executable using pyinstaller
+6. Compile script into executable using pyinstaller
 ```
 wine Scripts/pyinstaller.exe --onefile wineclick.py
 ```
