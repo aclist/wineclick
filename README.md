@@ -109,7 +109,7 @@ The listener supports file rotation: after initially creating the `wineclick` fi
 if you expect to write a lot of triggers into the file (e.g. autoclicker) and want to periodically expunge it.
 
 # Best practices
-Note that for an autoclicker, you should buffer your input by at least 100ms (.1s) to avoid overwhelming the listener.
+Note that for an autoclicker, you should buffer your input by at least 100ms (.1s) to avoid overwhelming the listener. Aside from a small wait interval, *wineclick does not buffer for you!*
 
 Due to the way files are written, it is generally preferable to use the `>>` syntax to append to the file, rather than `>` to overwrite it. Overwriting is permissible if you remove the file in between 
 commands; otherwise, the listener will be unable to tail it.
