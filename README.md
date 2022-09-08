@@ -39,7 +39,7 @@ wineclick does not concern itself with cursor movement, leaving the user to impl
 
 # Build
 
-If you do not wish to build the executable, you can obtain it via Releases.
+If you do not wish to build the executable, you can obtain it via the [release page](https://github.com/aclist/wineclick/releases/download/wineclick/wineclick.tar.gz).
 
 1. Obtain Windows 64-bit Python installer
 https://www.python.org/downloads/windows/ (direct link: https://www.python.org/ftp/python/3.10.6/python-3.10.6-amd64.exe)
