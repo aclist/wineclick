@@ -55,7 +55,12 @@ export WINEPREFIX=$HOME/.pyinstaller
 - Select Applications tab
 - Use Windows version dropdown
 
-4. Follow default prompts to install Python into the Wine prefix.
+4. Install Windows version of Python
+
+```
+wine python-3.10.6-amd64.exe
+```
+- Follow default prompts to install Python into the Wine prefix.
 
 5. Install `pyinstaller` and necessary dependencies using pip
 - Navigate to `<WINEPREFIX>/drive_c/users/<your username>/AppData/Local/Programs/Python/Python310`
