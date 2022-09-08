@@ -31,7 +31,7 @@ The resultant script would look like:
 #!/bin/bash
 run some commands
 xdotool mousemove X Y
-echo "left" >> wineclick
+echo left >> wineclick
 logic continues
 ```
 
@@ -62,9 +62,10 @@ export WINEPREFIX=$HOME/.pyinstaller
 
 ```
 wine python.exe Scripts/pip.exe install pyinstaller pywin32 tailhead
-
 ```
-6. Compile script into executable using pyinstaller
+6. Compile script into executable using pyinstaller (You'll have to encapsulate the path correctly. I find it's easier to just place the Python script in the same path to avoid Windows path escaping 
+   oddities)
+
 ```
 wine Scripts/pyinstaller.exe --onefile wineclick.py
 ```
@@ -77,7 +78,7 @@ Launch the desired Windows application/game using Wine/Proton.
 While it is running, activate the same Wine prefix as the application and launch `wineclick.exe` with Wine. `wineclick.exe` can be located anywhere, but it must be adjacent to a plain text file called 
 `wineclick`, which you should stage in your shell script before commencing input automation.
 
-Echo commands into the "wineclick" file to trigger input events.
+Echo commands into the `wineclick` file to trigger input events.
 
 # Usage
 
@@ -105,10 +106,13 @@ Lastly, you can invoke the `exit` trigger for programmatic closure of the listen
 Alternatively, keyboard interrupt (Ctrl-C) can be sent to the shell running the executable.
 
 The listener supports file rotation: after initially creating the `wineclick` file, you can delete or move it, then recreate it, and the listener will continue following new lines. This can be useful 
-if you expect to write a lot of triggers into the file and want to periodically expunge it.
+if you expect to write a lot of triggers into the file (e.g. autoclicker) and want to periodically expunge it.
 
-Note that due to the way files are written, it is generally preferable to use the `>>` syntax to append to the file, rather than `>` to overwrite it. Overwriting is permissible if you remove the file 
-in between commands; otherwise, the listener will be unable to tail it.
+# Best practices
+Note that for an autoclicker, you should buffer your input by at least 100ms (.1s) to avoid overwhelming the listener.
+
+Due to the way files are written, it is generally preferable to use the `>>` syntax to append to the file, rather than `>` to overwrite it. Overwriting is permissible if you remove the file in between 
+commands; otherwise, the listener will be unable to tail it.
 
 Therefore, while the below constructs will work:
 
