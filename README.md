@@ -74,7 +74,7 @@ wine Scripts/pyinstaller.exe --onefile wineclick.py
 # Setup
 
 Launch the desired Windows application/game using Wine/Proton.
-While it is running, activate the same Wine prefix as the application and launch wineclick.exe with Wine. wineclick.exe can be located anywhere, but it must be adjacent to a plain text file called 
+While it is running, activate the same Wine prefix as the application and launch `wineclick.exe` with Wine. `wineclick.exe` can be located anywhere, but it must be adjacent to a plain text file called 
 `wineclick`, which you should stage in your shell script before commencing input automation.
 
 Echo commands into the "wineclick" file to trigger input events.
